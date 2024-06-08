@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-pessoa-app
+  labels:
+    app: pod-pessoa-app
+spec:
+  containers:
+    - name: pessoa-app
+      image: gtbarbosa/k8s-app-java-mysql
+      ports:
+        - containerPort: 8080

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: app-k8s-java-mysql
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+#    url: jdbc:mysql://localhost:3307/k8s-database
+    url: jdbc:mysql://svc-mysql-db:3306/k8s-database
+    username: user
+    password: pass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8080
