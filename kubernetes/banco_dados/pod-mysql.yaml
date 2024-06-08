@@ -17,12 +17,12 @@ spec:
         - name: MYSQL_DATABASE
           valueFrom:
             configMapKeyRef:
-              name: mysql-configmap
+              name: app-configmap
               key: MYSQL_DATABASE
         - name: MYSQL_USER
           valueFrom:
             configMapKeyRef:
-              name: mysql-configmap
+              name: app-configmap
               key: MYSQL_USER
         - name: MYSQL_PASSWORD
           valueFrom:

@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-pessoa-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pod-pessoa-app
+  template:
+    metadata:
+      labels:
+        app: pod-pessoa-app
+    spec:
+      containers:
+        - name: container-pessoa-app
+          image: gtbarbosa/k8s-app-java-mysql
+          env:
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-configmap
+                  key: APP_NAME
+            - name: DDL_AUTO
+              valueFrom:
+                configMapKeyRef:
+                  name: app-configmap
+                  key: DDL_AUTO
+            - name: SHOW_SQL
+              valueFrom:
+                configMapKeyRef:
+                  name: app-configmap
+                  key: SHOW_SQL
+            - name: URL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-configmap
+                  key: URL_DATABASE
+            - name: USER_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-configmap
+                  key: USER_DATABASE
+            - name: APP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: app-configmap
+                  key: APP_PORT
+
+          ports:
+            - containerPort: 8080

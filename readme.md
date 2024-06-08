@@ -12,7 +12,7 @@ para aplicar conceitos de Kubernetes que estou estudando na pós-gradução em A
 2. Através de algum CLI, acesse o diretório do projeto e execute os seguintes comandos:
 ```bash
 cd kubernetes
-kubectl apply -f mysql-configmap.yaml
+kubectl apply -f configmap.yaml
 kubectl apply -f mysql-secret.yaml
 kubectl apply -f pod-mysql.yaml
 kubectl apply -f svc-mysql.yaml

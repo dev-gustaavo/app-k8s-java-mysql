@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-configmap
+data:
+  APP_NAME: app-k8s-java-mysql
+  DDL_AUTO: create-drop
+  SHOW_SQL: "true"
+  URL_DATABASE: jdbc:mysql://svc-mysql-db:3306/k8s-database
+  USER_DATABASE: user
+  APP_PORT: "8080"
+  MYSQL_DATABASE: k8s-database
+  MYSQL_USER: user
