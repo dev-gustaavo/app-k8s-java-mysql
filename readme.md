@@ -31,7 +31,7 @@ kubectl apply -f svc-k8s-pessoa-app.yaml
 Com isso, a aplicação deve devolver status code 200 com o body vazio.
 <br><br>
 Como o Service do banco de dados é do tipo ClusterIP, você não conseguirá acessar por algum SGBD, você precisará acessar 
-o cluster via CLI. Para isso, execute os comandos abaixo:
+o pod via CLI. Para isso, execute os comandos abaixo:
 ```bash
 kubectl exec -it mysql-db /bin/bash
 ```
@@ -40,7 +40,7 @@ Com isso, você estará dentro do pod e poderá executar o seguinte:
 mysql -u user -p
 ```
 A senha do usuário user será solicitada, neste caso ela foi definida dentro do arquivo mysql-secret.yaml, na variável `MYSQL_PASSWORD` 
-e está em base64, no entanto, a senha é `pass`. Digite pass e pressione `ENTER`. Após, você poderá executar comandos do próprio 
+e está em base64, no entanto, a senha é `pass`. Digite `pass` e pressione `ENTER`. Após, você poderá executar comandos do próprio 
 MySQL para verificar os registros cadastrados.
 <br><br>
 1. Execute `show databases;` para listar todos os bancos de dados
